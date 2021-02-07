@@ -284,9 +284,6 @@ if __name__ == '__main__':
         raise
             
 
-    #image_ORI_paths = glob.glob(r'D:\Data\Download\倍赛提供的数据\SWB00320-a.*')
-    #image_ORI_paths = glob.glob(r'D:\Data\Download\倍赛提供的数据\*-a.*')
-    #image_ORI_paths = glob.glob(r'D:\Data\Download\to曲直\新整理数据\证件照测试集-复杂背景\*-a.*')
     image_ORI_paths = glob.glob(r'D:\Data\Download\new_data\*-a.*')
     maxBorderLen = 800
     for imgoripath in image_ORI_paths:
