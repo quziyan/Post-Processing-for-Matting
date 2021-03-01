@@ -285,6 +285,7 @@ if __name__ == '__main__':
             
 
     image_ORI_paths = glob.glob(r'D:\Data\Download\new_data\*-a.*')
+    #构建一个文件夹，原图为xxx-a.jpg,  matting-mask为xxx-b.png, 输出为xxx-d.png
     maxBorderLen = 800
     for imgoripath in image_ORI_paths:
         maskpath = get_path(imgoripath, 'mask')
@@ -293,7 +294,9 @@ if __name__ == '__main__':
 
         imgori = cv2_imread(imgoripath, toRGB=True, max_border_len=maxBorderLen)
         mask = cv2_imread(maskpath, shape=imgori.shape[0:2])[:,:,0] / 255.
-        imgpixel = cv2_imread(imgpixelpath, toRGB=True, shape=imgori.shape[0:2])
+        
+        #imgpixel设置成原图，姑且认为该变量没有用
+        imgpixel = imgori # cv2_imread(imgpixelpath, toRGB=True, shape=imgori.shape[0:2])
         print(imgoripath, imgori.shape, mask.shape, imgpixel.shape)
         blue_bg = get_blue_bg(imgori)
         process(imgori, mask, blue_bg, imgpixel, imgoutput_path)
